@@ -1,15 +1,124 @@
 {% set placeholder = _('E.g. environment') %}
 <!-- Header with full-height image -->
-<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-left w3-text-white" style="padding:48px">
-    <span class="w3-jumbo w3-hide-small">Start something that matters</span><br>
-    <span class="w3-xxlarge w3-hide-large w3-hide-medium"> Welcome to IFAD Open data Portal</span><br>
-    <span class="w3-large">Stop wasting valuable time with projects that just isn't you.</span>
-    <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more and start today</a></p>
-  </div> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+<div class="hero">
+    <h1>Welcome to the IFAD Open Data Portal</h1>
+    <p>Explore and access data to promote sustainable agricultural development.</p>
 
-</header>
+    <div class="row justify-content-center">
+        <div class="col-md-5 column">
+            <h3>Moving Dots Animation</h3>
+            <div class="moving-dots">
+                <div class="dots-wrapper">
+                    <img src="https://via.placeholder.com/50/007bff/ffffff?text=1" alt="Dot 1" class="dot active" />
+                    <img src="https://via.placeholder.com/50/28a745/ffffff?text=2" alt="Dot 2" class="dot" />
+                    <img src="https://via.placeholder.com/50/d39e00/ffffff?text=3" alt="Dot 3" class="dot" />
+                </div>
+            </div>
+            <div class="navigation-dots">
+                <span class="nav-dot active"></span>
+                <span class="nav-dot"></span>
+                <span class="nav-dot"></span>
+            </div>
+        </div>
+        <div class="col-md-5 column">
+            <h3>Country Map</h3>
+            <div class="map"></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
 <style>
+
+
+        .hero {
+            background-color: skyblue;  /* Light gray background */
+             background-image: url('https://th.bing.com/th/id/R.442ca8a27919fce4682d8938b39e9ef1?rik=%2fG5GuOQ9EiE%2fzA&riu=http%3a%2f%2fblended-html.com%2fbackground-images%2fbi-background-light-blue.png&ehk=gtxPZRTB1sEf0VbY93rvSxiHyCYCkY89Eei7H%2fYiugk%3d&risl=&pid=ImgRaw&r=0');
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .column {
+            border: 1px solid white; /* Border color */
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px;
+        }
+
+        .moving-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px; /* Set height for the moving dots section */
+            overflow: hidden; /* Hide overflow to make it a slideshow */
+            position: relative;
+        }
+
+        .dots-wrapper {
+            display: flex;
+            animation: slide 6s infinite; /* Change the duration for slide effect */
+        }
+
+        .dot {
+            width: 50px; /* Adjust size of dots image */
+            margin: 0 10px; /* Space between dots */
+            opacity: 0.5; /* Initial opacity */
+            transition: opacity 0.5s; /* Smooth opacity transition */
+        }
+
+        .dot.active {
+            opacity: 1; /* Fully visible for the active dot */
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            33.33% { transform: translateX(-100%); }
+            66.66% { transform: translateX(-200%); }
+            100% { transform: translateX(-300%); }
+        }
+
+        .map {
+            height: 300px; /* Set height for the map section */
+            background-image: url('https://via.placeholder.com/600x300'); /* Replace with your map image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .navigation-dots {
+            margin-top: 15px; /* Space between slideshow and navigation dots */
+        }
+
+        .nav-dot {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #007bff; /* Default dot color */
+            display: inline-block;
+            margin: 0 5px;
+            opacity: 0.5; /* Initial opacity for navigation dots */
+            transition: opacity 0.3s;
+        }
+
+        .nav-dot.active {
+            opacity: 1; /* Fully visible for the active navigation dot */
+        }
+
 .bgimg-1 {
   background-position: center;
   background-size: cover;
@@ -17,3 +126,24 @@
   min-height: 100%;
 }
 </style>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+<script>
+    const dots = document.querySelectorAll('.dot');
+    const navDots = document.querySelectorAll('.nav-dot');
+    let index = 0;
+
+    setInterval(() => {
+        dots[index].classList.remove('active');
+        navDots[index].classList.remove('active');
+        index = (index + 1) % dots.length; // Loop through dots
+        dots[index].classList.add('active');
+        navDots[index].classList.add('active');
+    }, 5000); // Change dot every 2 seconds
+</script>
