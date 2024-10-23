@@ -1,6 +1,13 @@
 {% ckan_extends %}
-{% block primary_content %}
 
-  {% snippet 'home/layout1.html' %}
+{% block promoted %}
+  {% snippet 'snippets/promoted.html' %}
+{% endblock %}
 
+{% block resources %}
+  {% snippet 'snippets/resources.html' %}
+{% endblock %}
+
+{% block news %}
+   {%snippet 'snippets/news.html' %}
 {% endblock %}
