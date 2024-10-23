@@ -1,0 +1,29 @@
+<!-- ckanext-datagov/ckanext/datagov/templates/home.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site_title }}</title>
+    {{ assets.css('datagov-css') }}  <!-- Use CKAN asset management to load CSS -->
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>{{ header_text }}</h1>  <!-- Dynamic Header -->
+        </header>
+
+        <main>
+            <h2>Welcome to Your Custom CKAN Homepage</h2>
+
+            <section id="dynamic-content">
+                <p>Loading datasets...</p>
+            </section>
+        </main>
+    </div>
+
+    {{ assets.js('app_js') }}  <!-- Use CKAN asset management to load JS -->
+</body>
+</html>
+
