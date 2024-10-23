@@ -1,26 +1,19 @@
 {% set placeholder = _('E.g. environment') %}
-<div class="Hero">
-  {% block home_image_caption %}
-  <div class="heading">
-    {{ _("Welcome to IFAD Open Data") }}
-  </div>
-  {% endblock %}
-  {% block home_image_content %}
-  <div class="item1">
-    <form class="search-form" method="get" action="{% url_for 'dataset.search' %}">
-      <div class="search-input search-giant">
-        <input aria-label="{% block header_site_search_label %}{{ _('Search datasets') }}{% endblock %}"
-          id="field-main-search" type="text" class="form-control" name="q" value="" autocomplete="off"
-          placeholder="{% block search_placeholder %}{{ placeholder }}{% endblock %}" />
-        <button type="submit" aria-labelledby="search-label">
-          <i class="fa fa-search"></i>
-          <span class="sr-only" id="search-label">{{ _('Search') }}</span>
-        </button>
-      </div>
-    </form>
-  </div>
-  {% endblock %}
-  {% block home_image_content1 %}
- 
-  {% endblock %}
-</div>
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-left w3-text-white" style="padding:48px">
+    <span class="w3-jumbo w3-hide-small">Start something that matters</span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium"> Welcome to IFAD Open data Portal</span><br>
+    <span class="w3-large">Stop wasting valuable time with projects that just isn't you.</span>
+    <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more and start today</a></p>
+  </div> 
+
+</header>
+<style>
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("/w3images/mac.jpg");
+  min-height: 100%;
+}
+</style>
