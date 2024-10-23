@@ -1,0 +1,21 @@
+{% ckan_extends %}
+  
+{% block footer_content %}
+    <div class="content">
+         {% block footer_links %}
+          <ul>
+              <li><a href="{{ h.url_for(controller='home', action='about') }}">{{ _('About {0}').format(g.site_title) }}</a></li>
+            {% endblock %}
+          </ul>
+    </div>
+
+{% endblock %}
+
+
+{#{% block footer_links %}#}
+{#    <li>SASDI EMC/DCPR v{{ emc_version.version }} (git sha: {{ emc_version.git_sha }})</li>#}
+{#    <li>CKAN v{{ h.ckan_version() }}</li>#}
+{#{% endblock %}#}
+
+{% block footer_debug %}
+{% endblock %}
