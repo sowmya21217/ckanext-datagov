@@ -121,6 +121,18 @@
             background-image: url('https://datagov-app01.staging.ifad.org/dataset/ifad-country-boundaries/resource/1df16c38-7160-4979-a1bd-5ef7f17f988d/view/68dbb83b-fdf9-4714-81b5-c829ba8fa149'); /* Replace with your map image */
             background-size: cover;
             background-position: center;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%;
+        }
+        .map iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
         .hero h1 {
