@@ -1,11 +1,13 @@
-from ckan.lib.base import BaseController, render
+# from ckan.lib.base import BaseController, render
 
-class DatagovController(BaseController):
-    def index(self):
-        return render('datagov/templates/projects/index.html')  # Render your custom homepage
+from ckan.config.middleware import make_app
+from ckan.common import _
+from ckan.plugins import toolkit
+
 
 # Define your routing
-def make_map():
-    map = make_map()
-    map.connect('datagov_projects', '/projects', controller='ckanext.datagov.controller.DatagovController', action='index')
-    return map
+def make_route_map():
+    routes = [
+        (r'projects', 'ckanext_datagov.controllers:DatagovController', 'your_action'),
+    ]
+    return routes

@@ -8,4 +8,4 @@ class DatagovController(BaseController):
             'site_title': 'Open Data Portal',  # Dynamic site title
             'header_text': 'Welcome to Your Data Portal',  # Dynamic header text
         }
-        return render('datagov/templates/projects/index.html', extra_vars=context)
+        return render('projects.html', extra_vars=context)
