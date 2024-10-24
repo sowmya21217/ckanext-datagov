@@ -1,9 +1,10 @@
 
-  {% block home_image_news %}
+{% block home_image_news %}
    <div class="news">    
      {{ _(' NEWS ') }}
    </div>
-  {% endblock %}
+{% endblock %}
+
 {% block home_image_news1 %}
 <div class="news-feed-container">
   <div class="news-feed">
@@ -31,12 +32,15 @@
     <!-- Add more news items as needed -->
   </div>
 </div>
+
 <style>
+
 .news{
   justify-content: center;
   text-align: center;
   color: #003876;
-   font-weight: bold;
+  font-weight: bold;
+  padding: 20px;
 }
 .news-feed-container {
   overflow: hidden;
@@ -53,6 +57,25 @@
   padding: 20px;
   text-align: center;
   width: 30%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .news-item {
+    width: 45%; /* Adjust width for medium-sized screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .news-item {
+    width: 80%; /* Adjust width for smaller screens */
+  }
+}
+
+.news-content a {
+  max-width: 100%; /* Ensures the image fits the container */
+  height: auto;    /* Maintains the aspect ratio */
+  object-fit: cover; /* Ensures the image covers the space nicely */
 }
 
 .news-content {
@@ -72,6 +95,7 @@
 }
 
 </style>
+
 <script>
 // JavaScript (script.js)
 document.addEventListener('DOMContentLoaded', function () {
