@@ -54,7 +54,7 @@
             text-align: center;
             border-radius: 8px; /* Optional: Rounded corners */
             transition: transform 0.2s; /* Optional: Animation */
-            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.5);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
                  background-color:#08457e;
     background-image:-webkit-gradient(linear,left bottom,right top,color-stop(1%,#08457e),color-stop(52%,#005f9e),
         color-stop(52%,#08457e),color-stop(100%,#007cc2));
@@ -68,9 +68,12 @@
         .block:hover {
             transform: scale(1.05); /* Optional: Slight scaling on hover */
         }
-        .block img {
+        .block svg {
             max-width: 100%; /* Responsive images */
             height: auto;
             margin-bottom: 10px; /* Space between image and text */
         }
+        .block a {
+              text-decoration: none; 
+            }
     </style>
