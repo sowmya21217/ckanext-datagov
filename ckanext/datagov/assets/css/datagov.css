@@ -1,4 +1,6 @@
-
+.hero {
+  background-image: url('/base/images/bg-wave-bg-wave-bg-wave-mask@2x.png');
+}
 /* This is just an example, feel free to replace */
 :root {
   --bs-blue: #0d6efd;
@@ -2297,68 +2299,6 @@ select[id$="field-dataset_custodian"] {
   .search-form .search-input-group {
     margin-bottom: 10px;
   }
-}
-@media (min-width: 768px) {
-  .Hero {
-    padding: 10px;
-    height: 210px;
-    width: auto;
-    margin-left: 0px;
-    margin-bottom: 10px;
-    background-color: #fff;
- 
- }
-}
-
-@media (min-width: 992px) {
-  .Hero {
-    padding: 10px;
-    height: 230px;
-    width: auto;
-    margin-left: 0px;
-    margin-bottom: 10px;
-    background-color: #fff;
-  }
-}
-
-@media (min-width: 1200px) {
-  .Hero {
-    padding: 10px;
-    height: 240px;
-    width: auto;
-    margin-left: 0px;
-    margin-bottom: -10px;
-    background-color: #fff;
-  }
-}
-
-@media (min-width: 264px) and (max-width: 620px) {
-  .Hero {
-    padding: 10px;
-    height: 220px;
-    width: auto;
-    margin-left: 0px;
-    margin-bottom: 10px;
-    background-color: #fff;
-  }
-}
-
-.Hero .div {
-  text-align: center;
-  padding: 20px 0;
-}
-
-
-.Hero:after {
-  border-radius: 3px 3px 0 0;
-}
-
-.Hero:after .back:hover {
-  text-decoration: none;
-}
-
-.Hero:after .back:hover span {
-  text-decoration: underline;
 }
 
 /* quotation */
