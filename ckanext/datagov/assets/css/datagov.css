@@ -1,4 +1,6 @@
-
+.homepage .hero {
+     background: #003870;
+}
 /* This is just an example, feel free to replace */
 :root {
   --bs-blue: #0d6efd;
