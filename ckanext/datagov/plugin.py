@@ -4,7 +4,7 @@ import ckan.plugins.toolkit as toolkit
 
 # import ckanext.datagov.cli as cli
 # import ckanext.datagov.helpers as helpers
-# import ckanext.datagov.views as views
+import ckanext.datagov.views as views
 # from ckanext.datagov.logic import (
 #     action, auth, validators
 # )
