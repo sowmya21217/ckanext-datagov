@@ -40,9 +40,8 @@ class DatagovPlugin(plugins.SingletonPlugin):
     #     return action.get_actions()
 
     # IBlueprint
-
-     def get_blueprint(self):
-         return views.get_blueprints()
+    def get_blueprint(self):
+        return views.get_blueprints()
 
     # IClick
 
