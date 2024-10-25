@@ -8,6 +8,6 @@ from ckan.plugins import toolkit
 # Define your routing
 def make_route_map():
     routes = [
-        (r'projects', 'ckanext_datagov.controllers:DatagovController', 'your_action'),
+        (r'projects', 'ckanext_datagov.controllers:DatagovController', 'projects'),
     ]
     return routes
