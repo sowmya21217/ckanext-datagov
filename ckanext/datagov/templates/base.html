@@ -1,11 +1,11 @@
 {% ckan_extends %}
-
+{% block links %}
 <li>
     <a href="{{ url_for('projects') }}" title="{{ _('Projects') }}">
         <i class="fa fa-folder-open"></i> {{ _('Projects') }}
     </a>
 </li>
-
+{% endblock %}
 
 {% block styles %}
   {{ super() }}
