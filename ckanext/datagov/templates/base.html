@@ -1,5 +1,12 @@
 {% ckan_extends %}
 
+<li>
+    <a href="{{ url_for('datagov.projects') }}" title="{{ _('Projects') }}">
+        <i class="fa fa-folder-open"></i> {{ _('Projects') }}
+    </a>
+</li>
+
+
 {% block styles %}
   {{ super() }}
   {% asset 'datagov/datagov-css' %}
