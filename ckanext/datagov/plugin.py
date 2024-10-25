@@ -15,7 +15,7 @@ class DatagovPlugin(plugins.SingletonPlugin):
     
     # plugins.implements(plugins.IAuthFunctions)
     # plugins.implements(plugins.IActions)
-    # plugins.implements(plugins.IBlueprint)
+    plugins.implements(plugins.IBlueprint)
     # plugins.implements(plugins.IClick)
     # plugins.implements(plugins.ITemplateHelpers)
     # plugins.implements(plugins.IValidators)
@@ -41,8 +41,8 @@ class DatagovPlugin(plugins.SingletonPlugin):
 
     # IBlueprint
 
-    # def get_blueprint(self):
-    #     return views.get_blueprints()
+     def get_blueprint(self):
+         return views.get_blueprints()
 
     # IClick
 
