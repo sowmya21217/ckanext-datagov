@@ -1,4 +1,22 @@
 {% ckan_extends %}
-{% extends "base.html" %}
 
-<div><h1>Welcome to Projects page </h1></div>
+{% block projects_page1 %}
+ {% snippet 'projects/snippets/boundaries.html' %}
+{% endblock %}
+
+
+{% block primary_content %}
+
+      {% block promoted1 %}
+           {% snippet 'home/snippets/promoted.html' %}
+      {% endblock %}
+
+      {% block resources1 %}
+            {% snippet 'home/snippets/resources.html' %}
+      {% endblock %}
+
+      {% block news1 %}
+            {% snippet 'home/snippets/news.html' %}
+      {% endblock %}
+
+{% endblock %}
