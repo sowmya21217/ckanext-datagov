@@ -11,6 +11,7 @@
         <i class="fa fa-users"></i><span class="text">{{ _(' Groups') }}</span></a></li>
     <li> <a href="" class="image" title="{{ _('About') }}">
             <i class="fa fa-clipboard"></i><span class="text">{{ _(' About') }}</span></a></li>
-
+    <li><a href="{{ url_for('datagov.projects') }}" title="{{ _('Projects') }}">
+           <i class="fa fa-folder-open"></i><span class="text" >{{ _('Projects') }}</span> </a></li>
     {% endblock %}
 {% endblock %}
