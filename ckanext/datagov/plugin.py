@@ -1,6 +1,6 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-
+from .views import datagov
 
 # import ckanext.datagov.cli as cli
 # import ckanext.datagov.helpers as helpers
@@ -41,7 +41,7 @@ class DatagovPlugin(plugins.SingletonPlugin):
 
     # IBlueprint
     def get_blueprint(self):
-        return views.get_blueprints()
+        return datagov
 
     # IClick
 
