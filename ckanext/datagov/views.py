@@ -12,4 +12,4 @@ def projects():
       return render_template('projects/index.html')
 
 def get_blueprints():
-    return [datagov]
+    return [datagov_ifad]
