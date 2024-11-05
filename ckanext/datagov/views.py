@@ -1,5 +1,7 @@
-from flask import Blueprint, render_template, send_from_directory
+from flask import Flask, Blueprint, render_template, send_from_directory
 
+if __name__ == '__main__':
+    datagov.run(debug=True)
 
 datagov = Blueprint("datagov", __name__)
 

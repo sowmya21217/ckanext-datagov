@@ -1,22 +1,21 @@
 {% ckan_extends %}
 
+<!-- templates/projects/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+</head>
+<body>
+    <h1>Projects Page</h1>
+    <p>This is the projects page.</p>
+
 {% block projects_page1 %}
  {% snippet 'projects/snippets/boundaries.html' %}
 {% endblock %}
 
 
-{% block primary_content %}
-
-      {% block promoted1 %}
-           {% snippet 'home/snippets/promoted.html' %}
-      {% endblock %}
-
-      {% block resources1 %}
-            {% snippet 'home/snippets/resources.html' %}
-      {% endblock %}
-
-      {% block news1 %}
-            {% snippet 'home/snippets/news.html' %}
-      {% endblock %}
-
-{% endblock %}
+</body>
+</html>
