@@ -45,37 +45,45 @@
         .wave {
             position: absolute;
             bottom: 0;
-            width: 200%; /* Make the wave wider for a seamless effect */
-            height: 200px; /* Height of the wave */
+            left: 50%;      
+             width: 200%; /* Make the wave wider for a seamless effect */
+             height: 200px; /* Height of the wave */
             background: rgba(255, 255, 255, 0.2); /* Light wave color */
             border-radius: 50%; /* Rounded edges */
+            transform: translateX(-50%);
             animation: wave 10s linear infinite; /* Animation for the wave */
         }
 
         /* Wave animation keyframes */
         @keyframes wave {
             0% {
-                transform: translateX(0);
+                transform: translateX(-50%) translateY(0);
+            }
+              50% {
+                transform: translateX(-50%) translateY(-10px);
             }
             100% {
-                transform: translateX(-50%); /* Move wave left */
+                transform: translateX(-50%)  translateY(0);/* Move wave left */
             }
         }
 
         /* Specific waves with different timing and positioning */
         .wave1 {
-            bottom: 50px; /* Position above the bottom */
+            bottom: 20px; /* Position above the bottom */
             animation-delay: 0s; /* No delay */
+            opacity: 0.2;
         }
 
         .wave2 {
-            bottom: 80px; /* Higher wave */
+            bottom: 30px; /* Higher wave */
             animation-delay: 2s; /* Slight delay */
+            opacity: 0.3;
         }
 
         .wave3 {
-            bottom: 110px; /* Even higher wave */
+            bottom: 40px; /* Even higher wave */
             animation-delay: 4s; /* More delay */
+            opacity: 0.4;
         }
 
 .homepage .hero {
