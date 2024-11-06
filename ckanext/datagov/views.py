@@ -1,13 +1,13 @@
 from flask import Flask, Blueprint, render_template
 
-if __name__ == '__main__':
-    datagov.run(debug=True)
 
 datagov = Blueprint("datagov", __name__)
 
 
-@datagov.route('/projects/')
-
 def projects():
-      return render_template('projects/index.html')
+     return "Hello! welcome to projects page"
 
+datagov.add_url_rule("datagov/projects",view_func=projects)
+
+def get_blueprints():
+     return [datagov]
