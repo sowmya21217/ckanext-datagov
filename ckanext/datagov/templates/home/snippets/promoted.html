@@ -1,10 +1,26 @@
 {% set placeholder = _('E.g. environment') %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFAD Open Data Portal</title>
 <!-- Header with full-height image -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-
+<body>
+   <div class="background">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+    </div>
 <div class="hero">
     <h1>Welcome to the IFAD Open Data Portal</h1>
     <p>Explore and access data to promote sustainable agricultural development.</p>
+     <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search for data...">
+        </div>   
 
     <div class="row justify-content-center">
         <div class="col-md-5 column">
@@ -44,10 +60,85 @@
 
 
 <style>
+
+.background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, #003870 0%, #007BFF 100%);
+            overflow: hidden;
+            z-index: -1; /* Behind other elements */
+        }
+
+        /* 3D Wave Animation */
+        .wave {
+            position: absolute;
+            bottom: 0;
+            width: 200%; /* Make the wave wider for a seamless effect */
+            height: 200px; /* Height of the wave */
+            background: rgba(255, 255, 255, 0.2); /* Light wave color */
+            border-radius: 50%; /* Rounded edges */
+            animation: wave 10s linear infinite; /* Animation for the wave */
+        }
+
+        /* Wave animation keyframes */
+        @keyframes wave {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%); /* Move wave left */
+            }
+        }
+
+        /* Specific waves with different timing and positioning */
+        .wave1 {
+            bottom: 50px; /* Position above the bottom */
+            animation-delay: 0s; /* No delay */
+        }
+
+        .wave2 {
+            bottom: 80px; /* Higher wave */
+            animation-delay: 2s; /* Slight delay */
+        }
+
+        .wave3 {
+            bottom: 110px; /* Even higher wave */
+            animation-delay: 4s; /* More delay */
+        }
+
 .homepage .hero {
-            background: #003870; /* Light gray background */
-            padding: 60px 20px;
+            position: relative;
+            z-index: 1;
+            padding: 50px 20px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+        }
+
+/* Search bar styles */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px; /* Space between title and search bar */
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 400px; /* Max width for the search bar */
+            border-radius: 5px;
+            border: 1px solid white;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .search-bar::placeholder {
+            color: rgba(255, 255, 255, 0.8); /* Lighter color for placeholder */
         }
 
         .column {
@@ -182,3 +273,4 @@
         showSlide(currentIndex);
     }, 5000); // Change every 5 seconds
 </script>
+</body>
