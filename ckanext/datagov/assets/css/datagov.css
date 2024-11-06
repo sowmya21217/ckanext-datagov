@@ -1,6 +1,13 @@
 .homepage .hero {
-     background: #003870;
-}
+            position: relative;
+            z-index: 1;
+            padding: 50px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+        }
 /* This is just an example, feel free to replace */
 :root {
   --bs-blue: #0d6efd;
