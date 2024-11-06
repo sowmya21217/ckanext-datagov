@@ -674,7 +674,9 @@ fieldset[disabled] .btn-default.focus {
 .masthead a {
   color: #fff;
 }
-
+.masthead img {
+  background: #003870;
+}
 
 /* Footer */
 
@@ -1159,8 +1161,8 @@ select[id$="field-dataset_custodian"] {
 
 .account-masthead {
   min-height: 30px;
-  color: #fff;
-  background: #003870;
+  color: #003870;
+  background: whitesmoke;
 }
 
 .account-masthead:before,
@@ -1215,11 +1217,11 @@ select[id$="field-dataset_custodian"] {
 
 .account-masthead .account ul li a {
   display: block;
-  color: #bfd7de;
   font-size: 13px;
   font-weight: bold;
   padding: 0 10px;
   line-height: 31px;
+  text-decoration: none;
 }
 
 .account-masthead .account ul li a span.username,
@@ -1234,7 +1236,7 @@ select[id$="field-dataset_custodian"] {
 }
 
 .account-masthead .account ul li a:hover {
-  color: #d9e7eb;
+  color: #003870;
   background-color: #00232e;
   text-decoration: none;
 }
@@ -1280,7 +1282,7 @@ select[id$="field-dataset_custodian"] {
   margin-bottom: initial;
   padding: 10px 0;
   color: #fff;
-  background: #003870;
+  background: whitesmoke;
 }
 
 .masthead:before,
