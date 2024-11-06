@@ -9,6 +9,12 @@
             height: 100vh;
             background: linear-gradient(to bottom, #003870 0%, #007BFF 100%);
         }
+.masthead .main-navbar ul li a {
+  color: #003870;
+}
+
+
+
 /* This is just an example, feel free to replace */
 :root {
   --bs-blue: #0d6efd;
