@@ -1221,6 +1221,7 @@ select[id$="field-dataset_custodian"] {
   font-weight: bold;
   padding: 0 10px;
   line-height: 31px;
+  color: #003870;
   text-decoration: none;
 }
 
@@ -1375,7 +1376,7 @@ select[id$="field-dataset_custodian"] {
 .masthead .nav>.active>a,
 .masthead .nav>.active>a:hover,
 .masthead .nav>.active>a:focus {
-  color: #fff;
+  color: #003870;
   text-shadow: none;
 }
 
@@ -1466,7 +1467,7 @@ select[id$="field-dataset_custodian"] {
 }
 
 .masthead {
-  background-color: #003870;
+  background-color: whitesmoke;
 }
 
 .masthead .navigation .nav-pills li a:hover {
