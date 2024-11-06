@@ -7,6 +7,7 @@
             flex-direction: column;
             justify-content: center;
             height: 100vh;
+            background: linear-gradient(to bottom, #003870 0%, #007BFF 100%);
         }
 /* This is just an example, feel free to replace */
 :root {
