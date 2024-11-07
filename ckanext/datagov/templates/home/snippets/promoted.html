@@ -4,18 +4,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
 <div class="hero">
       <div class="wave wave1"></div>
-        <div class="wave wave2"></div>
-        <div class="wave wave3"></div>
-
-    <h1>Welcome to the IFAD Open Data Portal</h1>
-    <p>Explore and access data to promote sustainable agricultural development.</p>
+      <div class="wave wave2"></div>
+      <div class="wave wave3"></div>
+      <h1>Welcome to the IFAD Open Data Portal</h1>
+      <p>Explore and access data to promote sustainable agricultural development.</p>
      <!-- Search Bar -->
         <div class="search-container">
              <form class="search-form" method="get" action="{% url_for 'dataset.search' %}">
                  <div class="search-input search-giant">
-                     <input aria-label="{% block header_site_search_label %}{{ _('Search datasets') }}{% endblock %}"
-          id="field-main-search" type="text" class="search-bar" name="q" value="" autocomplete="off"
-          placeholder="{% block search_placeholder %}{{ placeholder }}{% endblock %}" />
+                     <input aria-label="{% block header_site_search_label %}{{ _('Search datasets') }}{% endblock %}" id="field-main-search" type="text" class="search-bar" name="q" value="" autocomplete="off" placeholder="{% block search_placeholder %}{{ placeholder }}{% endblock %}" />
                  <button type="submit" aria-labelledby="search-label">
                   <i class="fa fa-search"></i>
                   <span class="sr-only" id="search-label">{{ _('Search') }}</span>
@@ -26,11 +23,9 @@
 </div>
 
 
-
-
 <style>
 
-.background {
+        .background {
             position: fixed;
             top: 0;
             left: 0;
@@ -86,8 +81,8 @@
             opacity: 0.4;
         }
 
-.homepage .hero {
-            position: relative;
+       .homepage .hero {
+
             z-index: 1;
             padding: 50px 20px;
             text-align: center;
@@ -98,7 +93,7 @@
             background: linear-gradient(to bottom, #003870 0%, #007BFF 100%);
         }
 
-/* Search bar styles */
+        /* Search bar styles */
         .search-container {
             display: flex;
             justify-content: center;
@@ -106,6 +101,7 @@
         }
 
         .search-bar {
+        
             width: 100%;
             max-width: 800px; /* Max width for the search bar */
             border-radius: 5px;

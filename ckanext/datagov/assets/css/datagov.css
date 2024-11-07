@@ -13,8 +13,16 @@
   color: #003870;
 }
 
-.search-form {
+.masthead .main-navbar ul li:hover a {
+      background-color: white;
+}
 
+.search-form {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: 1px dotted #ddd;
+    /* max-width: 800px; */
+    width: 50%;
 }
 
 
