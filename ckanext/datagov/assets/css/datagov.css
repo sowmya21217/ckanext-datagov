@@ -1171,7 +1171,7 @@ select[id$="field-dataset_custodian"] {
 .account-masthead {
   min-height: 30px;
   color: #003870;
-  background: whitesmoke;
+  background: black;
 }
 
 .account-masthead:before,
@@ -1230,7 +1230,6 @@ select[id$="field-dataset_custodian"] {
   font-weight: bold;
   padding: 0 10px;
   line-height: 31px;
-  color: #003870;
   text-decoration: none;
 }
 
