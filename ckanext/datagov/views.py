@@ -5,7 +5,7 @@ datagov = Blueprint("datagov", __name__)
 
 
 def projects():
-     return render_template("index.html")
+     return render_template("projects/index.html")
 
 datagov.add_url_rule("/datagov/projects",view_func=projects)
 
