@@ -35,7 +35,7 @@ datagov-css:
    output: ckanext-datagov/%(version)s-datagov.css
    contents:
      - css/datagov.css
-     - csssweb/fontawesome-all.min.css
+     - cssweb/fontawesome-all.min.css
      - cssweb/L.Control.Locate.min.css
      - cssweb/leaflet-control-geocoder.Geocoder.css
      - cssweb/leaflet.css
