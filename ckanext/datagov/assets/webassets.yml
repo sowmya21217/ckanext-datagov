@@ -30,7 +30,7 @@ datagov-js:
      preload:
        - base/main/images/images1
        
- datagov-css:
+datagov-css:
    filter: cssrewrite
    output: ckanext-datagov/%(version)s-datagov.css
    contents:
