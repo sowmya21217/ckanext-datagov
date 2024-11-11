@@ -39,6 +39,6 @@ datagov-css:
      - cssweb/L.Control.Locate.min.css
      - cssweb/leaflet-control-geocoder.Geocoder.css
      - cssweb/leaflet.css
-     - cssweb/ MarkerCluster.css
+     - cssweb/MarkerCluster.css
      - cssweb/MarkerCluster.Default.css
      - cssweb/qgis2web.css
