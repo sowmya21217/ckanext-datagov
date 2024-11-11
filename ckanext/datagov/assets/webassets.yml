@@ -35,10 +35,10 @@ datagov-css:
    output: ckanext-datagov/%(version)s-datagov.css
    contents:
      - css/datagov.css
-     - cssweb/fontawesome-all.min.css
-     - cssweb/L.Control.Locate.min.css
-     - cssweb/leaflet-control-geocoder.Geocoder.css
-     - cssweb/leaflet.css
-     - cssweb/MarkerCluster.css
-     - cssweb/MarkerCluster.Default.css
-     - cssweb/qgis2web.css
+     - css/fontawesome-all.min.css
+     - css/L.Control.Locate.min.css
+     - css/leaflet-control-geocoder.Geocoder.css
+     - css/leaflet.css
+     - css/MarkerCluster.css
+     - css/MarkerCluster.Default.css
+     - css/qgis2web.css
