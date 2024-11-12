@@ -29,7 +29,8 @@ datagov-js:
    extra:
      preload:
        - base/main/images/images1
-       
+       - webfonts/fa-solid-900.ttf
+       - webfonts/fa-solid-900.ttf2
 datagov-css:
    filter: cssrewrite
    output: ckanext-datagov/%(version)s-datagov.css

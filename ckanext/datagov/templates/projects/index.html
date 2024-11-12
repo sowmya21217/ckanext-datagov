@@ -5,4 +5,8 @@
  {% snippet 'projects/projects1/index.html' %}
 {% endblock %}
 
+{% block styles %}
+  {{ super() }}
+  {% asset 'datagov/datagov-css' %}
+{% endblock %}
 
