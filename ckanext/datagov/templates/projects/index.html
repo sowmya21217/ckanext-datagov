@@ -6,7 +6,9 @@
 {% endblock %}
 
 {% block styles %}
-  {{ super() }}
   {% asset 'datagov/datagov-css' %}
 {% endblock %}
 
+{% block scripts %}
+    {% asset 'datagov/datagov-js' %}  <!-- Include JavaScript bundle -->
+{% endblock %}
