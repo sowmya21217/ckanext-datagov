@@ -59,3 +59,97 @@
 {% endblock %}
 
 
+{% block project_page2 %}
+
+
+    <!-- Inline CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #map {
+            width: 100%;
+            height: 500px;
+            margin-top: 20px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .dataset-list {
+            margin-top: 20px;
+        }
+
+        .dataset-item {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .dataset-item a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .dataset-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <!-- Leaflet.js for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<body>
+    <div class="container">
+        <h1>Map View of Country Projects</h1>
+        
+        <!-- Map Container -->
+        <div id="map"></div>
+
+        <!-- Dataset List -->
+        <div class="dataset-list">
+            <h3>Country Projects Datasets</h3>
+            {% for dataset in datasets %}
+                <div class="dataset-item">
+                    <a href="{{ dataset.url }}" target="_blank">{{ dataset.title }}</a>
+                    <p>{{ dataset.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Inline JS -->
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([51.505, -0.09], 2); // Default to center of the world
+
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add markers for datasets with geographic data
+        {% for dataset in datasets %}
+            {% if dataset.latitude and dataset.longitude %}
+                var lat = {{ dataset.latitude }};
+                var lon = {{ dataset.longitude }};
+                var popupContent = '<a href="{{ dataset.url }}" target="_blank">{{ dataset.title }}</a><br>{{ dataset.description }}';
+                
+                L.marker([lat, lon]).addTo(map)
+                    .bindPopup(popupContent);
+            {% endif %}
+        {% endfor %}
+    </script>
+</body>
+
+{% endblock %}
