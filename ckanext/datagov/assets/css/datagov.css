@@ -7,7 +7,7 @@
             flex-direction: column;
             justify-content: center;
             height: 50vh;
-            background: url("../../public/base/images/image.jpg") no-repeat;
+            background: url("../../base/images/image.jpg") no-repeat;
 }
 
 .masthead .main-navbar ul li a {
