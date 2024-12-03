@@ -3,43 +3,12 @@ datagov-js:
    output: ckanext-datagov/%(version)s-datagov.js
    contents:
      - js/datagov.js
-     - js/Autolinker.min.js
-     - js/L.Control.Locate.min.js
-     - js/leaflet-heat.js
-     - js/leaflet.markercluster.js
-     - js/leaflet-svg-shape-markers.min.js
-     - js/leaflet.wms.js
-     - js/qgis2web_expressions.js
-     - js/labelgun.min.js
-     - js/leaflet-control-geocoder.Geocoder.js
-     - js/leaflet.js
-     - js/leaflet.pattern.js
-     - js/leaflet-tilelayer-wmts.js
-     - js/multi-style-layer.js
-     - js/rbush.min.js
-     - js/labels.js
-     - js/leaflet-hash.js
-     - js/leaflet.js.map
-     - js/leaflet.rotatedMarker.js
-     - js/leaflet-tilelayer-wmts.js
-     - js/OSMBuildings-Leaflet.js
-     - js data/Admin2_2.js
-     - js/data/Book1_3.js
-     - js/data/indiaosm_1.js
    extra:
      preload:
        - base/main/images/images1
-       - webfonts/fa-solid-900.ttf
-       - webfonts/fa-solid-900.ttf2
+
 datagov-css:
    filter: cssrewrite
    output: ckanext-datagov/%(version)s-datagov.css
    contents:
      - css/datagov.css
-     - css/fontawesome-all.min.css
-     - css/L.Control.Locate.min.css
-     - css/leaflet-control-geocoder.Geocoder.css
-     - css/leaflet.css
-     - css/MarkerCluster.css
-     - css/MarkerCluster.Default.css
-     - css/qgis2web.css

@@ -1,14 +1,15 @@
 .homepage .hero {
-            position: relative;
+
             z-index: 1;
-            padding: 50px 20px;
+            padding: 190px 20px;
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            height: 100vh;
-            background: linear-gradient(to bottom, #003870 0%, #007BFF 100%);
-        }
+            height: 50vh;
+            background: url("../../public/base/images/image.jpg") no-repeat;
+}
+
 .masthead .main-navbar ul li a {
   color: #003870;
 }
