@@ -3,9 +3,6 @@
 <!-- Header with full-height image -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
 <div class="hero">
-      <div class="wave wave1"></div>
-      <div class="wave wave2"></div>
-      <div class="wave wave3"></div>
       <h1>Welcome to the IFAD Open Data Portal</h1>
       <p>Explore and access data to promote sustainable agricultural development.</p>
      <!-- Search Bar -->
@@ -36,50 +33,6 @@
             z-index: -1; /* Behind other elements */
         }
 
-        /* 3D Wave Animation */
-        .wave {
-            position: absolute;
-            bottom: 0;
-            left: 50%;      
-             width: 200%; /* Make the wave wider for a seamless effect */
-             height: 200px; /* Height of the wave */
-            background: rgba(255, 255, 255, 0.2); /* Light wave color */
-            border-radius: 50%; /* Rounded edges */
-            transform: translateX(-50%);
-            animation: wave 10s linear infinite; /* Animation for the wave */
-        }
-
-        /* Wave animation keyframes */
-        @keyframes wave {
-            0% {
-                transform: translateX(-50%) translateY(0);
-            }
-              50% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            100% {
-                transform: translateX(-50%)  translateY(0);/* Move wave left */
-            }
-        }
-
-        /* Specific waves with different timing and positioning */
-        .wave1 {
-            bottom: 20px; /* Position above the bottom */
-            animation-delay: 0s; /* No delay */
-            opacity: 0.2;
-        }
-
-        .wave2 {
-            bottom: 30px; /* Higher wave */
-            animation-delay: 2s; /* Slight delay */
-            opacity: 0.3;
-        }
-
-        .wave3 {
-            bottom: 40px; /* Even higher wave */
-            animation-delay: 4s; /* More delay */
-            opacity: 0.4;
-        }
 
        .homepage .hero {
 
@@ -90,7 +43,7 @@
             flex-direction: column;
             justify-content: center;
             height: 50vh;
-            background: linear-gradient(to bottom, #003870 0%, #007BFF 100%);
+            background: url(public/base/images/image.jpg);
         }
 
         /* Search bar styles */
