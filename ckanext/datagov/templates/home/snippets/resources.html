@@ -1,34 +1,39 @@
-{% block promoted2 %}
+{% set placeholder = _('E.g. environment') %}
+{% block promoted1 %}
 <!-- Header with full-height image -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
 
-<!-- Section with Two Columns -->
+<!-- Section with Two Equal Columns -->
 <div class="container mt-5">
     <div class="row">
         <!-- Column 1: Scrolling Embed Links (Graphs or Charts) -->
         <div class="col-md-6 mb-4">
             <div class="scrolling-embed-container">
-                <h3>Resources data</h3>
+                <h3>Resources</h3>
                 <div class="scrolling-embed">
-                    <!-- Add your embedded content like graphs or charts here -->
-                    <iframe src="" width="100%" height="300"></iframe>
-                    <iframe src="" width="100%" height="300"></iframe>
-                    <iframe src="" width="100%" height="300"></iframe>
+                    <!-- Each iframe will be displayed horizontally, one at a time -->
+                    <iframe title="Data viewer" width="700" height="400" src="https://datagov-app01.staging.ifad.org/dataset/operations/resource/a08e797d-9cf6-43fe-a448-d45d5fe07615/view/1b043757-4dd1-4e19-934b-a812ab51b210" frameBorder="0"></iframe>
+                    <iframe class="embed-frame" src="" width="100%" height="300"></iframe>
+                    <iframe class="embed-frame" src="" width="100%" height="300"></iframe>
+                </div>
+                <!-- Left and Right arrows to manually scroll -->
+                <div class="scroll-arrows">
+                    <button class="arrow-left"><i class="fa fa-chevron-left"></i></button>
+                    <button class="arrow-right"><i class="fa fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
 
         <!-- Column 2: Webpage with Explore Button -->
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
             <div class="webpage-container">
-                <h3>Explore More Data</h3>
                 <div class="embed-webpage">
                     <!-- Embed a webpage (e.g., an external page or iframe) -->
-                    <iframe src="https://datagov-app01.staging.ifad.org/datagov/projects" width="100%" height="300"></iframe>
+                    <iframe class="blurred" src="https://datagov-app01.staging.ifad.org/datagov/projects" width="100%" height="300"></iframe>
                 </div>
                 <!-- Explore Button -->
                 <div class="explore-button-container text-center mt-4">
-                    <button class="btn btn-primary" onclick="window.location.href='https://datagov-app01.staging.ifad.org/datagov/projects';">Explore</button>
+                    <button class="btn btn-explore" onclick="window.location.href='https://nextpage.com';">Explore</button>
                 </div>
             </div>
         </div>
@@ -56,14 +61,24 @@
     .scrolling-embed-container {
         border: 1px solid #ddd;
         padding: 15px;
-        height: 500px;
-        overflow-y: auto; /* Enables scrolling for embedded content */
+        height: 300px; /* Set a fixed height */
+        overflow: hidden; /* Hide overflow to create scrolling effect */
         background-color: #ffffff;
+        position: relative;
     }
 
-    .scrolling-embed iframe {
-        margin-bottom: 15px;
+    /* Horizontal Scrolling for embed */
+    .scrolling-embed {
+        display: flex;
+        flex-direction: row; /* Align items horizontally */
+        transition: transform 1s ease-in-out;
+    }
+
+    /* Embed frames */
+    .embed-frame {
+        margin-right: 20px; /* Space between each iframe */
         border: none;
+        flex-shrink: 0; /* Prevent iframes from shrinking */
     }
 
     /* Webpage Container */
@@ -71,30 +86,82 @@
         border: 1px solid #ddd;
         padding: 15px;
         background-color: #ffffff;
+        position: relative;
     }
 
-    .embed-webpage iframe {
-        width: 100%;
-        border: none;
+    /* Blurred Effect on the Webpage */
+    .embed-webpage iframe.blurred {
+        filter: blur(2px); /* Apply blur to the iframe */
+        pointer-events: none; /* Disable interaction with the iframe */
     }
 
-    /* Explore Button Styling */
+    /* Explore Button Styling - Modern Style */
     .explore-button-container {
         margin-top: 20px;
     }
 
     .explore-button-container button {
-        padding: 10px 20px;
-        font-size: 16px;
+        padding: 12px 30px;
+        font-size: 18px;
         background-color: #007bff;
         color: white;
         border: none;
-        border-radius: 5px;
+        border-radius: 50px; /* Rounded button */
+        box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2); /* Soft shadow */
         cursor: pointer;
+        transition: all 0.3s ease;
     }
 
     .explore-button-container button:hover {
         background-color: #0056b3;
+        box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3); /* Stronger shadow on hover */
+        transform: translateY(-2px); /* Slightly lift the button */
+    }
+
+    /* Arrow Buttons for Manual Scroll */
+    .scroll-arrows {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        right: 10px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        transform: translateY(-50%);
+    }
+
+    .scroll-arrows button {
+        background: rgba(0, 0, 0, 0.3);
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .scroll-arrows button:hover {
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    /* Heading Styles */
+    h3 {
+        color: #333;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    /* Equal Column Height */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .col-md-6 {
+        flex: 1 1 50%;
+        padding: 15px;
+        box-sizing: border-box;
     }
 
     /* Responsive Design: Stack columns on smaller screens */
@@ -108,22 +175,50 @@
         .embed-webpage iframe {
             height: 200px; /* Adjust iframe height on smaller screens */
         }
-    }
 
-    /* Heading Styles */
-    h3 {
-        color: #333;
-        font-size: 1.5rem;
-        margin-bottom: 15px;
+        .col-md-6 {
+            flex: 1 1 100%; /* Stack columns on small screens */
+        }
     }
 </style>
 
-<!-- Add custom JS if needed -->
+<!-- Add custom JS for Arrow Buttons and Scrolling -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 <script>
-    // Optionally, you can add JS functionality to handle specific interactions if necessary
-    // For example, a script to automatically load the next page after clicking the explore button
+    // Get the container of the scrolling iframes
+    const scrollingEmbed = document.querySelector('.scrolling-embed');
+    const arrowLeft = document.querySelector('.arrow-left');
+    const arrowRight = document.querySelector('.arrow-right');
+    const frames = document.querySelectorAll('.embed-frame');
+    let currentIndex = 0;
 
-    // No JS needed for the button redirect in this case, as we use window.location.href in the button
+    // Scroll to the left
+    arrowLeft.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            // Move the content left by one frame width
+            scrollingEmbed.style.transform = `translateX(-${currentIndex * (frames[0].clientWidth + 20)}px)`;
+        }
+    });
+
+    // Scroll to the right
+    arrowRight.addEventListener('click', () => {
+        if (currentIndex < frames.length - 1) {
+            currentIndex++;
+            // Move the content right by one frame width
+            scrollingEmbed.style.transform = `translateX(-${currentIndex * (frames[0].clientWidth + 20)}px)`;
+        }
+    });
+
+    // Automatic scroll every 30 seconds
+    setInterval(() => {
+        if (currentIndex < frames.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; // Loop back to the first slide
+        }
+        scrollingEmbed.style.transform = `translateX(-${currentIndex * (frames[0].clientWidth + 20)}px)`;
+    }, 30000); // 30 seconds interval
 </script>
 
 {% endblock %}

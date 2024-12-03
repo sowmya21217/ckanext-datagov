@@ -1,13 +1,12 @@
 .homepage .hero {
-
-            z-index: 1;
-            padding: 190px 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 50vh;
-            background: url("../../base/images/image.jpg") no-repeat;
+         z-index: 1;
+         padding: 190px 20px;
+         text-align: center;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         height: 50vh;
+         background: url("../../base/images/countryside-6700296_1280.jpg") no-repeat;
 }
 
 .masthead .main-navbar ul li a {
