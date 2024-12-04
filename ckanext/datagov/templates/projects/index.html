@@ -308,60 +308,67 @@
         };
 
         // Fetch the data from CKAN API
-        fetch('/my-api/data')
-            .then(response => response.json())
-            .then(data => {
-                // Loop through each data entry and add a circle to the map
-                data.forEach(function(item) {
-                    var countryCode = item.recipient_country;
-                    var coordinates = countryCoordinates[countryCode];
+fetch('/my-api/data')
+    .then(response => response.json())
+    .then(data => {
+        // Loop through each data entry and add a circle to the map
+        data.forEach(function(item) {
+            // Check if the recipient_country exists and is not null
+            var countryCode = item.recipient_country;
+            if (!countryCode) {
+                // Skip this entry if recipient_country is null or undefined
+                return;
+            }
 
-                    if (coordinates) {
-                        // Create a circle on the map with the provided latitude and longitude
-                        var circle = L.circle(coordinates, {
-                            color: 'darkblue',       // Circle color
-                            fillColor: 'darkblue',   // Fill color
-                            fillOpacity: 0.5,        // Fill opacity
-                            radius: 100000           // Circle radius (adjustable)
-                        }).addTo(map);
+            var coordinates = countryCoordinates[countryCode];
 
-                        // Define the content of the popup when clicking on the circle
-                        var popupContent = ` 
-                            <div class="popup-content">
-                                <strong>Transaction Type:</strong> ${item.transaction_type}<br>
-                                <strong>Amount:</strong> ${item.value} ${item.currency}<br>
-                                <strong>Provider:</strong> ${item.provider_org}<br>
-                                <strong>Receiver:</strong> ${item.receiver_org}<br>
-                                <strong>Description:</strong> ${item.description}<br>
-                                <strong>Date:</strong> ${item.transaction_date}<br>
-                                <strong>Country:</strong> ${item.recipient_country}
-                            </div>
-                        `;
+            if (coordinates) {
+                // Create a circle on the map with the provided latitude and longitude
+                var circle = L.circle(coordinates, {
+                    color: 'darkblue',       // Circle color
+                    fillColor: 'darkblue',   // Fill color
+                    fillOpacity: 0.5,        // Fill opacity
+                    radius: 100000           // Circle radius (adjustable)
+                }).addTo(map);
 
-                        // Bind the popup to the circle
-                        circle.bindPopup(popupContent);
+                // Check if any field is null before including it in the popup content
+                var popupContent = `
+                    <div class="popup-content">
+                        <strong>Transaction Type:</strong> ${item.transaction_type || 'N/A'}<br>
+                        <strong>Amount:</strong> ${item.value || 'N/A'} ${item.currency || 'N/A'}<br>
+                        <strong>Provider:</strong> ${item.provider_org || 'N/A'}<br>
+                        <strong>Receiver:</strong> ${item.receiver_org || 'N/A'}<br>
+                        <strong>Description:</strong> ${item.description || 'N/A'}<br>
+                        <strong>Date:</strong> ${item.transaction_date || 'N/A'}<br>
+                        <strong>Country:</strong> ${countryCode}
+                    </div>
+                `;
 
-                        // Append data to the data list section
-                        var dataItem = document.createElement('div');
-                        dataItem.classList.add('data-item');
-                        dataItem.innerHTML = `
-                            <h4>Transaction Type: ${item.transaction_type}</h4>
-                            <p><strong>Amount:</strong> ${item.value} ${item.currency}</p>
-                            <p><strong>Provider:</strong> ${item.provider_org}</p>
-                            <p><strong>Receiver:</strong> ${item.receiver_org}</p>
-                            <p><strong>Date:</strong> ${item.transaction_date}</p>
-                            <p><strong>Country:</strong> ${item.recipient_country}</p>
-                            <hr>
-                        `;
-                        document.getElementById('data-list').appendChild(dataItem);
-                    } else {
-                        console.warn('No coordinates found for country code: ' + countryCode);
-                    }
-                });
-            })
-            .catch(error => {
-                console.error("Error fetching data:", error);
-            });
+                // Bind the popup to the circle
+                circle.bindPopup(popupContent);
+
+                // Append data to the data list section, check if data is available
+                var dataItem = document.createElement('div');
+                dataItem.classList.add('data-item');
+                dataItem.innerHTML = `
+                    <h4>Transaction Type: ${item.transaction_type || 'N/A'}</h4>
+                    <p><strong>Amount:</strong> ${item.value || 'N/A'} ${item.currency || 'N/A'}</p>
+                    <p><strong>Provider:</strong> ${item.provider_org || 'N/A'}</p>
+                    <p><strong>Receiver:</strong> ${item.receiver_org || 'N/A'}</p>
+                    <p><strong>Date:</strong> ${item.transaction_date || 'N/A'}</p>
+                    <p><strong>Country:</strong> ${countryCode}</p>
+                    <hr>
+                `;
+                document.getElementById('data-list').appendChild(dataItem);
+            } else {
+                console.warn('No coordinates found for country code: ' + countryCode);
+            }
+        });
+    })
+    .catch(error => {
+        console.error("Error fetching data:", error);
+    });
+
     </script>
 </body>
 </html>
