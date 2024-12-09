@@ -826,7 +826,6 @@ def projects():
         "id": "1000000006___Commitment",
         "parent_project_id": "1000000006",
         "project_id": "1000000006",
-        "rfd_ref_no": null,
         "transaction_type": "Commitment",
         "transaction_date": null,
         "value": 39058593.0,
@@ -2074,7 +2073,6 @@ def projects():
         "id": "1000000009__12-06-1995-00:00:00_Commitment",
         "parent_project_id": "1100000489",
         "project_id": "1000000009",
-        "rfd_ref_no": null,
         "transaction_type": "Commitment",
         "transaction_date": "1995-12-06T00:00:00.000Z",
         "value": 60951314.94,
@@ -3034,7 +3032,6 @@ def projects():
         "id": "1000000012__04-02-1985-00:00:00_Commitment",
         "parent_project_id": "1100000168",
         "project_id": "1000000012",
-        "rfd_ref_no": null,
         "transaction_type": "Commitment",
         "transaction_date": "1985-04-02T00:00:00.000Z",
         "value": 316416066.0,
@@ -3914,29 +3911,20 @@ def projects():
         "flow_type": 20.0,
         "finance_type": 110.0
     },
-    {
-        "id": "1000000012_0018615300121002_06-02-1986-00:00:00_Disbursement",
-        "parent_project_id": "1100000168",
-        "project_id": "1000000012",
-        "rfd_ref_no": "0018615300121002",
-        "transaction_type": "Disbursement",
-        "transaction_date": "1986-06-02T00:00:00.000Z",
-        "value": 51898000.0,
-        "currency": "BEF",
-        "value_date": "1986-06-02T00:00:00.000Z",
-        "description": "1000000012 G-B-B-2-",
-        "provider_org": "IFAD",
-        "receiver_org": "MINISTRY OF FINANCE AND ECONOMIC DEVELOPMENT",
-        "disbursement_channel": "Money is disbursed through central Ministry of Finance or Treasury",
-        "sector": null,
-        "recipient_country": "ET",
-        "recipient_region": "ESA",
-        "narrative": "1000000012 0018615300121002 Direct Payment/Reimbursement",
-        "aid_type": "C01",
-        "tied_status": " ",
-        "transaction_code": 3.0,
-        "disbursement_channel_code": 1.0,
-        "flow_type": 20.0,
+    { "id": 
+        "1000000012_0018615300121002_06-02-1986-00:00:00_Disbursement", 
+        "parent_project_id": "1100000168", "project_id": "1000000012", 
+        "rfd_ref_no": "0018615300121002", "transaction_type": 
+        "Disbursement", "transaction_date": "1986-06-02T00:00:00.000Z", 
+        "value": 51898000.0, "currency": "BEF", "value_date": 
+        "1986-06-02T00:00:00.000Z", "description": "1000000012 G-B-B-2-", 
+        "provider_org": "IFAD", "receiver_org": "MINISTRY OF FINANCE AND 
+        ECONOMIC DEVELOPMENT", "disbursement_channel": "Money is disbursed 
+        through central Ministry of Finance or Treasury", "sector": null, 
+        "recipient_country": "ET", "recipient_region": "ESA", "narrative": 
+        "1000000012 0018615300121002 Direct Payment/Reimbursement", 
+        "aid_type": "C01", "tied_status": " ", "transaction_code": 3.0, 
+        "disbursement_channel_code": 1.0, "flow_type": 20.0, 
         "finance_type": 110.0
     },
     {
