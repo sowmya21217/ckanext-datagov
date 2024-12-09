@@ -995,7 +995,7 @@ def projects():
         "project_id": "1000000007",
         "rfd_ref_no": "0019719800071011",
         "transaction_type": "Disbursement",
-        "transaction_date": "1997-07-17T00:00:00.000Z",
+        “transaction_date”: “1997-07-17T00:00:00.000Z”,
         "value": 491495.0,
         "currency": "BEF",
         "value_date": "1997-07-17T00:00:00.000Z",
@@ -1499,7 +1499,7 @@ def projects():
         "project_id": "1000000007",
         "rfd_ref_no": "0019719800071012",
         "transaction_type": "Disbursement",
-        "transaction_date": "1997-07-17T00:00:00.000Z",
+        “transaction_date”: “1997-07-17T00:00:00.000Z”,
         "value": 2349515.0,
         "currency": "BEF",
         "value_date": "1997-07-17T00:00:00.000Z",
@@ -25887,7 +25887,7 @@ def projects():
         "project_id": "1000000007",
         "rfd_ref_no": "0019719800071011",
         "transaction_type": "Disbursement",
-        "transaction_date": "1997-07-17T00:00:00.000Z",
+        “transaction_date”: “1997-07-17T00:00:00.000Z”,
         "value": 491495.0,
         "currency": "BEF",
         "value_date": "1997-07-17T00:00:00.000Z",
@@ -26412,7 +26412,7 @@ def projects():
         "project_id": "1000000007",
         "rfd_ref_no": "0019719800071012",
         "transaction_type": "Disbursement",
-        "transaction_date": "1997-07-17T00:00:00.000Z",
+        “transaction_date”: “1997-07-17T00:00:00.000Z”,
         "value": 2349515.0,
         "currency": "BEF",
         "value_date": "1997-07-17T00:00:00.000Z",
@@ -49864,4 +49864,3 @@ datagov.add_url_rule("/datagov/projects",view_func=projects)
 
 def get_blueprints():
      return [datagov]
-
