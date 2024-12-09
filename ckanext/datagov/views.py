@@ -10,7 +10,7 @@ def projects():
         "id": "1000000005__12-05-1994-00:00:00_Commitment",
         "parent_project_id": "1100000365",
         "project_id": "1000000005",
-        "rfd_ref_no": ""N/A"",
+        "rfd_ref_no": "N/A",
         "transaction_type": "Commitment",
         "transaction_date": "1994-12-05T00:00:00.000Z",
         "value": 100957653.71,
