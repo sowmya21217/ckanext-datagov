@@ -6,31 +6,53 @@ datagov = Blueprint("datagov", __name__)
 
 def projects():
     country_projects = [
-      {
-        "id": "1000000005__12-05-1994-00:00:00_Commitment",
-        "parent_project_id": "1100000365",
-        "project_id": "1000000005",
-        "rfd_ref_no": "N/A",
-        "transaction_type": "Commitment",
-        "transaction_date": "1994-12-05T00:00:00.000Z",
-        "value": 100957653.71,
-        "currency": "BEF",
-        "value_date": "1994-12-05T00:00:00.000Z",
-        "description": "1000000005 G-B-B-13-",
-        "provider_org": "IFAD",
-        "receiver_org": "OFFICE OF MACRO-POLICY & INTERNATIONAL ECONOMIC COOPERATION",
-        "disbursement_channel": "Money is disbursed through central Ministry of Finance or Treasury",
-        "recipient_country": "ER",
-        "recipient_region": "ESA",
-        "narrative": "1000000005 GRANTS",
-        "aid_type": "C01",
-        "tied_status": " ",
-        "transaction_code": 2.0,
-        "disbursement_channel_code": 1.0,
-        "flow_type": 20.0,
-        "finance_type": 110.0
-     },
-     {
+        {
+            'title': 'Project A',
+            'description': 'Description for Project A',
+            'latitude': 34.0522,  # Latitude of the location
+            'longitude': -118.2437,  # Longitude of the location
+            'url': 'https://example.com/project-a'
+        },
+        {
+            'title': 'Project B',
+            'description': 'Description for Project B',
+            'latitude': 51.5074,
+            'longitude': -0.1278,
+            'url': 'https://example.com/project-b'
+        },
+        {
+            'title': 'Project C',
+            'description': 'Description for Project C',
+            'latitude': 48.8566,
+            'longitude': 2.3522,
+            'url': 'https://example.com/project-c'
+        },
+
+        {
+             "id": "1000000005__12-05-1994-00:00:00_Commitment",
+             "parent_project_id": "1100000365",
+             "project_id": "1000000005",
+             "rfd_ref_no": "N/A",
+             "transaction_type": "Commitment",
+             "transaction_date": "1994-12-05T00:00:00.000Z",
+             "value": 100957653.71,
+             "currency": "BEF",
+             "value_date": "1994-12-05T00:00:00.000Z",
+             "description": "1000000005 G-B-B-13-",
+             "provider_org": "IFAD",
+             "receiver_org": "OFFICE OF MACRO-POLICY & INTERNATIONAL ECONOMIC COOPERATION",
+             "disbursement_channel": "Money is disbursed through central Ministry of Finance or Treasury",
+             "recipient_country": "ER",
+             "recipient_region": "ESA",
+             "narrative": "1000000005 GRANTS",
+             "aid_type": "C01",
+             "tied_status": " ",
+             "transaction_code": 2.0,
+             "disbursement_channel_code": 1.0,
+             "flow_type": 20.0,
+             "finance_type": 110.0
+         },
+       {
         "id": "1000000005_0010420900051025_07-27-2004-00:00:00_Disbursement",
         "parent_project_id": "1100000365",
         "project_id": "1000000005",
