@@ -293,7 +293,7 @@ def projects():
         'value_date': '1997-09-19T00:00:00.000Z',
         'description': '1000000006 G-B-B-14-',
         'provider_org': 'IFAD',
-        'receiver_org': 'UNITED NATIONS CHILDREN'S FUND',
+        'receiver_org': 'UNITED NATIONS CHILDRENS FUND',
         'disbursement_channel': 'Money is disbursed through central Ministry of Finance or Treasury',
         'sector': 'N/A',
         'recipient_country': 'CH',
