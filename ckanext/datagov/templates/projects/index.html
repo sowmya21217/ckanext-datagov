@@ -14,39 +14,6 @@
     </style>
 </head>
 <body>
-    <div class="container my-4">
-        <h1 class="mb-4">Project Transactions</h1>
-        <!-- Table -->
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Project ID</th>
-                    <th>Transaction Type</th>
-                    <th>Transaction Date</th>
-                    <th>Value</th>
-                    <th>Currency</th>
-                    <th>Description</th>
-                    <th>Provider Org</th>
-                    <th>Recipient Country</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for project in datasets %}
-                <tr>
-                    <td>{{ project.id }}</td>
-                    <td>{{ project.project_id }}</td>
-                    <td>{{ project.transaction_type }}</td>
-                    <td>{{ project.transaction_date }}</td>
-                    <td>{{ project.value | round(2) }}</td>
-                    <td>{{ project.currency }}</td>
-                    <td>{{ project.description }}</td>
-                    <td>{{ project.provider_org }}</td>
-                    <td>{{ project.recipient_country }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
 
         <!-- Map -->
         <div id="map"></div>
@@ -237,7 +204,42 @@
                 `);
             }
         });
+
     </script>
+    <div class="container my-4">
+        <h1 class="mb-4">Project Transactions</h1>
+        <!-- Table -->
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Project ID</th>
+                    <th>Transaction Type</th>
+                    <th>Transaction Date</th>
+                    <th>Value</th>
+                    <th>Currency</th>
+                    <th>Description</th>
+                    <th>Provider Org</th>
+                    <th>Recipient Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for project in datasets %}
+                <tr>
+                    <td>{{ project.id }}</td>
+                    <td>{{ project.project_id }}</td>
+                    <td>{{ project.transaction_type }}</td>
+                    <td>{{ project.transaction_date }}</td>
+                    <td>{{ project.value | round(2) }}</td>
+                    <td>{{ project.currency }}</td>
+                    <td>{{ project.description }}</td>
+                    <td>{{ project.provider_org }}</td>
+                    <td>{{ project.recipient_country }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
 </body>
 </html>
 
