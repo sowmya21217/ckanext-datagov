@@ -255,7 +255,7 @@ def projects():
         'disbursement_channel_code': 1,
         'flow_type': 20,
         'finance_type': 110
-      }
+      },
       {
         'id': '1000000007_0019809200071031_04-02-1998-00:00:00_Disbursement',
         'parent_project_id': '1000000007',
