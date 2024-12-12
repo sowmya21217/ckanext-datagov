@@ -27,6 +27,18 @@
     width: 50%;
 }
 
+@media screen and (max-width: 1647px) {
+  .search-form .search-input.search-giant button {
+	    margin-top: -0.75rem;
+	    right: 250px;
+  } 
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -400px;
+    margin-right: -400px;
+  }
+}
 
 
 /* This is just an example, feel free to replace */
