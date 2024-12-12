@@ -16,6 +16,20 @@
                </button>
             </div>
          </form>
+         <form id="dataset-search-form" class="search-form" method="get" data-module="select-switch">
+
+  
+    <div class="input-group search-input-group">
+      <input aria-label="Search datasets..." id="field-giant-search" type="text" class="form-control input-lg" name="q" value="" autocomplete="off" placeholder="Search datasets...">
+      
+      <span class="input-group-btn">
+        <button class="btn btn-default btn-lg" type="submit" value="search" aria-label="Submit">
+          <i class="fa fa-search"></i>
+        </button>
+      </span>
+      
+    </div>
+    </form>
    </div>   
 </div>
 
@@ -155,38 +169,4 @@
         }
 </style>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
-
-<script>
-    const sliderItems = document.querySelectorAll('.slider-item');
-    let currentIndex = 0;
-
-    // Function to show the current slide
-    function showSlide(index) {
-        sliderItems.forEach((item, idx) => {
-            item.classList.remove('active');
-            if (idx === index) {
-                item.classList.add('active');
-            }
-        });
-    }
-
-    // Event listeners for arrow buttons
-    document.querySelector('.left-arrow').addEventListener('click', () => {
-        currentIndex = (currentIndex === 0) ? sliderItems.length - 1 : currentIndex - 1;
-        showSlide(currentIndex);
-    });
-
-    document.querySelector('.right-arrow').addEventListener('click', () => {
-        currentIndex = (currentIndex === sliderItems.length - 1) ? 0 : currentIndex + 1;
-        showSlide(currentIndex);
-    });
-
-    // Automatic Slide
-    setInterval(() => {
-        currentIndex = (currentIndex === sliderItems.length - 1) ? 0 : currentIndex + 1;
-        showSlide(currentIndex);
-    }, 5000); // Change every 5 seconds
-</script>
 {% endblock %}
