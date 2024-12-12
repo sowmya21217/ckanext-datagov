@@ -7,6 +7,7 @@
          justify-content: center;
          height: 50vh;
          background: url("../../base/images/experience-modern-elegance-abstract-gradient-600nw-2461532457.jpg") no-repeat;
+         background-size:cover;
 }
 
 .masthead .main-navbar ul li a {
