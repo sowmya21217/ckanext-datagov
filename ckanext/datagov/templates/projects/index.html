@@ -194,7 +194,7 @@
             if (coordinates) {
                 // Create a circle marker for each project
                 L.circleMarker(coordinates, {
-                    radius: 8,
+                    radius: 14,
                     fillColor: 'blue',
                     color: 'blue',
                     weight: 1,
@@ -203,7 +203,8 @@
                 }).addTo(map).bindPopup(`
                     <strong>ID:</strong> ${project.id}<br>
                     <strong>Value:</strong> ${project.value}<br>
-                    <strong>Description:</strong> ${project.description}
+                    <strong>Currency:</strong> ${project.currrency}<br>
+                    <strong>Currency:</strong> ${project.currrency}<br>
                 `);
             }
         });
@@ -215,7 +216,6 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Project ID</th>
                     <th>Transaction Type</th>
                     <th>Transaction Date</th>
@@ -229,7 +229,6 @@
             <tbody>
                 {% for project in datasets %}
                 <tr>
-                    <td>{{ project.id }}</td>
                     <td>{{ project.project_id }}</td>
                     <td>{{ project.transaction_type }}</td>
                     <td>{{ project.transaction_date }}</td>
