@@ -12,11 +12,11 @@
             margin-top: 20px;
         }
         .navbar {
-            height: 50px; /* Set navbar height */
+            height: 70px; /* Set navbar height */
         }
         .navbar-brand img {
-            width: 30px; /* Set logo size */
-            height: auto;
+            width: 100%; /* Set logo size */
+            height: 50px;
         }
         /* Styling for navbar */
         .navbar-nav .nav-link {
@@ -27,9 +27,9 @@
             width: 40px; /* Size of the logo */
             height: auto;
         }
-        . collapse {
-            color: #003870;
-         }
+        .navbar-light .navbar-nav .nav-link {
+           color: #003870;
+        }
     </style>
 </head>
 <body>
@@ -74,7 +74,11 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         // Initialize the map
-        var map = L.map('map').setView([0, 0], 2); // Centered on world view
+        var map = L.map('map', {
+           center: [0, 0], // Centered on world view
+           zoom: 2, // Initial zoom level
+           worldCopyJump: true, // Prevent map from wrapping around
+        });
 
         // Add OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -247,16 +251,15 @@
                 // Create a circle marker for each project
                 L.circleMarker(coordinates, {
                     radius: 14,
-                    fillColor: 'blue',
-                    color: 'blue',
-                    weight: 1,
+                    fillColor: '#00aaff',
+                    color: 'white',
+                    weight: 2,
                     opacity: 1,
-                    fillOpacity: 0.6
+                    fillOpacity: 0.7
                 }).addTo(map).bindPopup(`
                     <strong>ID:</strong> ${project.id}<br>
                     <strong>Value:</strong> ${project.value}<br>
-                    <strong>Currency:</strong> ${project.currrency}<br>
-                    <strong>Currency:</strong> ${project.currrency}<br>
+                    <strong>Currency:</strong> ${project.currency}<br>
                 `);
             }
         });
