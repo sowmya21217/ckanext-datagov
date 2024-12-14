@@ -21,9 +21,15 @@ def read_csv():
 
     return projects
 
+
 def projects():
     country_projects = read_csv()
-    return render_template('projects/index.html', datasets=country_projects)
+
+    # Calculate total value and project count
+    total_value = sum(float(project['value'] or 0) for project in country_projects)
+    project_count = len(country_projects)
+
+    return render_template('projects/index.html', datasets=country_projects, totalValue=total_value, projectCount=project_count)
 
 datagov.add_url_rule('/datagov/projects',view_func=projects)
 
