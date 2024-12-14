@@ -11,9 +11,51 @@
             height: 500px;
             margin-top: 20px;
         }
+        /* Styling for navbar */
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+            padding: 10px 20px;
+        }
+        .navbar-brand img {
+            width: 40px; /* Size of the logo */
+            height: auto;
+        }
     </style>
 </head>
 <body>
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!-- Logo on the left side -->
+            <a class="navbar-brand" href="https://datagov-app01.staging.ifad.org/">
+                <img src="../../base/images/ckan-logo.png" alt="Logo"> <!-- Replace with actual logo -->
+            </a>
+            
+            <!-- Navbar Links on the right side -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://datagov-app01.staging.ifad.org/dataset/">Catalog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://datagov-app01.staging.ifad.org/organization/">Organizations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://datagov-app01.staging.ifad.org/organization/">Groups</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://datagov-app01.staging.ifad.org/datagov/projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
         <!-- Map -->
         <div id="map"></div>
