@@ -36,9 +36,43 @@
             border-radius: 10px;
             border: 1px solid #ddd;
         } 
+        .masthead {
+            background-color: black;
+            padding: 10px 0;
+        }
+        .masthead .nav-link {
+            color: #fff;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+        }
+        .footer h4 {
+            margin-bottom: 20px;
+        }
+        .footer button {
+            margin-top: 10px;
+        }
    </style>
 </head>
 <body>
+    <!-- Masthead Navbar (Login, Contact) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light masthead">
+        <div class="container">
+            <!-- Navbar Links on the right side -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- Navbar Section -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
@@ -289,47 +323,61 @@
                `);
             }
         });
+       // Calculate total value of transactions and project count
+        var totalValue = 0;
+        var projectCount = projects.length;
+        projects.forEach(function(project) {
+            totalValue += parseFloat(project.value || 0);
+        });
+
+        // Update footer with project count and total IATI transactions
+        document.getElementById('projectCount').textContent = projectCount;
+        document.getElementById('totalIATI').textContent = totalValue.toFixed(2);
+
+        // Function to download CSV
+        function downloadCSV() {
+            var csvContent = "Project ID,Transaction Type,Transaction Date,Value,Currency,Description,Provider Org,Recipient Country\n";
+            projects.forEach(function(project) {
+                var row = `${project.project_id},${project.transaction_type},${project.transaction_date},${project.value},${project.currency},${project.description},${project.provider_org},${project.recipient_country_name}\n`;
+                csvContent += row;
+            });
+
+            var encodedUri = encodeURI("data:text/csv;charset=utf-8," + csvContent);
+            var link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "projects_data.csv");
+            document.body.appendChild(link);
+            link.click();
+        }
+
 
     </script>
-  <!-- Table and Toggle Button -->
- <div class="container my-4 table-container">
-    <h1 class="mb-4">Project Transactions</h1>
-    
-    <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#projectTable" aria-expanded="false" aria-controls="projectTable">
-        <span class="navbar-toggler-icon"></span> Toggle Table
-    </button>
-    
-    <div class="collapse" id="projectTable">
-        <table class="table table-bordered table-hover mt-3">
-            <thead>
-                <tr>
-                    <th>Project ID</th>
-                    <th>Transaction Type</th>
-                    <th>Transaction Date</th>
-                    <th>Value</th>
-                    <th>Currency</th>
-                    <th>Description</th>
-                    <th>Provider Org</th>
-                    <th>Recipient Country</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for project in datasets %}
-                <tr>
-                    <td>{{ project.project_id }}</td>
-                    <td>{{ project.transaction_type }}</td>
-                    <td>{{ project.transaction_date }}</td>
-                    <td>{{ project.value }}</td>
-                    <td>{{ project.currency }}</td>
-                    <td>{{ project.description }}</td>
-                    <td>{{ project.provider_org }}</td>
-                    <td><a href="/country/{{ project.recipient_country }}" target="Go to {{ project.recipient_country }}">{{ project.recipient_country_name }}</a></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+   <!-- Footer Section -->
+    <div class="footer">
+        <h4>Project Summary</h4>
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Countries and Regions</h5>
+                <ul id="countryList">
+                    {% for project in datasets %}
+                        <li><a href="#" onclick="filterByCountry('{{ project.recipient_country }}')">{{ project.recipient_country }} - {{ project.recipient_country_name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>No of Projects</h5>
+                <p id="projectCount">{{ projectCount }}</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Total IATI Transactions</h5>
+                <p id="totalIATI">{{ totalValue.toFixed(2) }}</p>
+            </div>
+        </div>
+        <button class="btn btn-info" onclick="downloadCSV()">Download CSV</button>
     </div>
- </div>
+
+
+
 </body>
 </html>
 
