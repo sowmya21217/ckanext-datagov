@@ -23,14 +23,20 @@
             font-size: 1.1rem;
             padding: 10px 20px;
         }
-        .navbar-brand img {
-            width: 40px; /* Size of the logo */
-            height: auto;
-        }
         .navbar-light .navbar-nav .nav-link {
            color: #003870;
         }
-    </style>
+        .collapse-table {
+            display: none;
+        }
+        .table-container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        } 
+   </style>
 </head>
 <body>
     <!-- Navbar Section -->
@@ -242,10 +248,29 @@
              // Add more ISO3 country codes and their respective lat/lng coordinates
         };
 
+       var iso3CountryNames = {
+        "AF": "Afghanistan",
+        "AL": "Albania",
+        "DZ": "Algeria",
+        "AR": "Argentina",
+        "AU": "Australia",
+        "AT": "Austria",
+        "BR": "Brazil",
+        "CA": "Canada",
+        "CN": "China",
+        "EG": "Egypt",
+        "IN": "India",
+        "US": "United States",
+        "GB": "United Kingdom",
+        "DE": "Germany",
+        // Add more countries as necessary...
+      };
+
         // Add project markers
         projects.forEach(function(project) {
             var iso3 = project.recipient_country; // Use recipient_country as ISO3
             var coordinates = iso3Coordinates[iso3];
+            var countryName = iso3CountryNames[iso3] || 'Unknown Country';
 
             if (coordinates) {
                 // Create a circle marker for each project
@@ -260,15 +285,22 @@
                     <strong>ID:</strong> ${project.id}<br>
                     <strong>Value:</strong> ${project.value}<br>
                     <strong>Currency:</strong> ${project.currency}<br>
-                `);
+                    <strong>Recipient Country:</strong> ${countryName}<br> 
+               `);
             }
         });
 
     </script>
-    <div class="container my-4">
-        <h1 class="mb-4">Project Transactions</h1>
-        <!-- Table -->
-        <table class="table table-bordered table-hover">
+  <!-- Table and Toggle Button -->
+ <div class="container my-4 table-container">
+    <h1 class="mb-4">Project Transactions</h1>
+    
+    <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#projectTable" aria-expanded="false" aria-controls="projectTable">
+        <span class="navbar-toggler-icon"></span> Toggle Table
+    </button>
+    
+    <div class="collapse" id="projectTable">
+        <table class="table table-bordered table-hover mt-3">
             <thead>
                 <tr>
                     <th>Project ID</th>
@@ -291,12 +323,13 @@
                     <td>{{ project.currency }}</td>
                     <td>{{ project.description }}</td>
                     <td>{{ project.provider_org }}</td>
-                    <td>{{ project.recipient_country }}</td>
+                    <td><a href="/country/{{ project.recipient_country }}" target="Go to {{ project.recipient_country }}">{{ project.recipient_country_name }}</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-
+    </div>
+ </div>
 </body>
 </html>
 
