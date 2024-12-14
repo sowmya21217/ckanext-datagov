@@ -9,7 +9,7 @@
     <style>
         #map {
             height: 500px;
-            margin-top: 20px;
+            margin-top: 2px;
         }
         .navbar {
             height: 70px; /* Set navbar height */
@@ -39,15 +39,30 @@
         .masthead {
             background-color: black;
             padding: 10px 0;
+            height: 30px;
         }
+        .container1 {
+            display: flex;
+	    flex-wrap: inherit;
+	    align-items: center;
+	    justify-content: space-between;
+	    background: black;
+	    width: 100%;
+	    padding-left: var(--bs-gutter-x, 1rem);
+	    margin-right: auto;
+	    margin-left: auto;
+	    padding-right: var(--bs-gutter-x, 2.7rem);
+	    color: #ff;
+        }
+
         .masthead .nav-link {
             color: #fff;
         }
         .footer {
             background-color: #f8f9fa;
-            padding: 20px;
+            padding: 1.5px;
             border-top: 1px solid #ddd;
-            margin-top: 40px;
+            margin-top: 4px;
         }
         .footer h4 {
             margin-bottom: 20px;
@@ -60,7 +75,7 @@
 <body>
     <!-- Masthead Navbar (Login, Contact) -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light masthead">
-        <div class="container">
+        <div class="container1">
             <!-- Navbar Links on the right side -->
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
