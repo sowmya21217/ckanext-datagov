@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
         #map {
-            height: 500px;
+            height: 430px;
             margin-top: 2px;
         }
         .navbar {
-            height: 70px; /* Set navbar height */
+            height: 100px; /* Set navbar height */
         }
         .navbar-brand img {
             width: 100%; /* Set logo size */
@@ -369,10 +369,9 @@
     </script>
    <!-- Footer Section -->
     <div class="footer">
-        <h4>Project Summary</h4>
         <div class="row">
             <div class="col-md-4">
-                <h5>Countries and Regions</h5>
+                <a href="#" onclick="showPopup('All Countries', 'Details about all countries')" class="countries-link">Countries and Regions</a>
                 <ul id="countryList">
                     {% for project in datasets %}
                         <li><a href="#" onclick="filterByCountry('{{ project.recipient_country }}')">{{ project.recipient_country }} - {{ project.recipient_country_name }}</a></li>
