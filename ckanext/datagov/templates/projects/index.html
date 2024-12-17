@@ -26,6 +26,10 @@
         .navbar-light .navbar-nav .nav-link {
            color: #003870;
         }
+        .navbar-light .navbar-nav .nav-item {
+           padding: 0.5rem 0.9rem;
+           margin: 7.5px 0;
+        }
         .collapse-table {
             display: none;
         }
@@ -54,9 +58,27 @@
 	    padding-right: var(--bs-gutter-x, 2.7rem);
 	    color: #ff;
         }
-
+        .navbar-nav1.ms-auto {
+             padding-top: 15px;
+             padding-right: 10px;
+             padding-left: 80px;
+            width: 20%;
+            flex-direction: row;
+            display: flex;
+            list-style: none;
+            font-size: 15px;
+         }
+        .nav-link1 {
+            color: #bfd7de;
+            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 0px 0px 12px 20px;
+            /* padding-top: 10px; */
+         }
         .masthead .nav-link {
-            color: #fff;
+            color: #003870;
+            background-color: #00232e;
         }
         .footer {
             background-color: #f8f9fa;
@@ -70,6 +92,20 @@
         .footer button {
             margin-top: 10px;
         }
+        /* List Page Container */
+        #listPage {
+            display: none; /* Initially hidden */
+            padding: 20px;
+            background-color: #f8f9fa;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-btn {
+            float: right;
+            margin: 10px;
+        }
    </style>
 </head>
 <body>
@@ -77,12 +113,12 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light masthead">
         <div class="container1">
             <!-- Navbar Links on the right side -->
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
+            <ul class="navbar-nav1 ms-auto">
+                <li class="nav-item1">
+                    <a class="nav-link1" href="/user/login">Login</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
+                <li class="nav-item1">
+                    <a class="nav-link1" href="/contact">Contact</a>
                 </li>
             </ul>
         </div>
@@ -123,7 +159,43 @@
     </nav>
 
         <!-- Map -->
+    <div>
         <div id="map"></div>
+       <div class="footer">
+          <div class="row">
+             <div class="col-md-4">
+                <a href="#" onclick="showListPage()" class="btn btn-info">Countries and Regions</a>
+                </ul>
+             </div>
+             <div class="col-md-4">
+                <h5>No of Projects</h5>
+                <p id="projectCount">{{ projectCount }}</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Total IATI Transactions</h5>
+                <p id="totalIATI">{{  "{:.2f}".format(totalValue) }}</p>
+            </div>
+         </div>
+         <button class="btn btn-info" onclick="downloadCSV()">Download CSV</button>
+       </div>
+    </div>
+
+    <!-- List Page View -->
+    <div id="listPage" class="container">
+        <button class="btn btn-danger close-btn" onclick="showMainPage()">X</button>
+        <h2>Countries and Regions</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Recipient Country</th>
+                    <th>Recipient Country Name</th>
+                    <th>Project Count</th>
+                </tr>
+            </thead>
+            <tbody id="countryTableBody">
+                <!-- Dynamic Rows -->
+            </tbody>
+        </table>
     </div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -325,7 +397,7 @@
                 // Create a circle marker for each project
                 L.circleMarker(coordinates, {
                     radius: 14,
-                    fillColor: '#00aaff',
+                    fillColor: '#14B1E5',
                     color: 'white',
                     weight: 2,
                     opacity: 1,
@@ -364,34 +436,32 @@
             document.body.appendChild(link);
             link.click();
         }
+        
+       // Show List Page
+        function showListPage() {
+            document.getElementById('mainPage').style.display = 'none';
+            document.getElementById('listPage').style.display = 'block';
 
+            // Populate the table dynamically
+            var tableBody = document.getElementById('countryTableBody');
+            tableBody.innerHTML = ""; // Clear existing rows
+            projects.forEach(function(project) {
+                var row = `<tr>
+                    <td>${project.recipient_country}</td>
+                    <td>${project.recipient_country_name}</td>
+                    <td>${project.value}</td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        // Show Main Page
+        function showMainPage() {
+            document.getElementById('listPage').style.display = 'none';
+            document.getElementById('mainPage').style.display = 'block';
+        }
 
     </script>
-   <!-- Footer Section -->
-    <div class="footer">
-        <div class="row">
-            <div class="col-md-4">
-                <a href="#" onclick="showPopup('All Countries', 'Details about all countries')" class="countries-link">Countries and Regions</a>
-                <ul id="countryList">
-                    {% for project in datasets %}
-                        <li><a href="#" onclick="filterByCountry('{{ project.recipient_country }}')">{{ project.recipient_country }} - {{ project.recipient_country_name }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h5>No of Projects</h5>
-                <p id="projectCount">{{ projectCount }}</p>
-            </div>
-            <div class="col-md-4">
-                <h5>Total IATI Transactions</h5>
-                <p id="totalIATI">{{  "{:.2f}".format(totalValue) }}</p>
-            </div>
-        </div>
-        <button class="btn btn-info" onclick="downloadCSV()">Download CSV</button>
-    </div>
-
-
-
 </body>
 </html>
 
