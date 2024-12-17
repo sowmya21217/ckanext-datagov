@@ -164,8 +164,9 @@
        <div class="footer">
           <div class="row">
              <div class="col-md-4">
-                <a href="#" onclick="showListPage()" class="btn btn-info">Countries and Regions</a>
-                </ul>
+               <div id="mainPage" class="container">
+                    <a href="#" onclick="showListPage()" class="btn btn-info">Countries and Regions</a>
+                </div>
              </div>
              <div class="col-md-4">
                 <h5>No of Projects</h5>
@@ -175,8 +176,10 @@
                 <h5>Total IATI Transactions</h5>
                 <p id="totalIATI">{{  "{:.2f}".format(totalValue) }}</p>
             </div>
+            <div class="col-md-4">
+                 <button class="btn btn-info" onclick="downloadCSV()">Download CSV</button>
+            </div>
          </div>
-         <button class="btn btn-info" onclick="downloadCSV()">Download CSV</button>
        </div>
     </div>
 
