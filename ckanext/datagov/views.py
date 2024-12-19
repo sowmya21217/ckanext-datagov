@@ -33,5 +33,9 @@ def projects():
 
 datagov.add_url_rule('/datagov/projects',view_func=projects)
 
+def list():
+    return render_template('projects/list.html')
+datagov.add_url_rule('/datagov/projects/list.html',view_func=list)
+
 def get_blueprints():
      return [datagov]
