@@ -26,8 +26,8 @@ def projects():
     country_projects = read_csv()
 
     # Calculate total value and project count
-    total_value = sum(float(project['value'] or 0) for project in country_projects)
-    project_count = len(country_projects)
+#    total_value = sum(float(project['value'] or 0) for project in country_projects)
+#   project_count = len(country_projects)
 
     return render_template('projects/index.html', datasets=country_projects, totalValue=total_value, projectCount=project_count)
 
