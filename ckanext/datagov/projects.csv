@@ -1,4 +1,4 @@
-﻿Replenishment,Contribution Type,List,Member State,Customercode,Currency,Pledge,Pledge USD,IOC USD,Non IOC Pmt (incl.in pmt),Promissory Note USD,Cash Payment USD,Total Payments,% Paid
+﻿Replenishment,Contribution Type,List,Member_State,Customercode,Currency,Pledge,Pledge USD,IOC USD,Non IOC Pmt (incl.in pmt),Promissory Note USD,Cash Payment USD,Total Payments,% Paid
 SUPP_FUND,SF_ASAP,LIST A,Flemish Department of Foreign Affairs,FDFA,EUR,0,0,2354599.94,0,0,2379550.05,2379550.05,0
 SUPP_FUND,SF_ASAP,LIST C,Korea  Republic of,KOR,USD,0,0,3000000,0,0,3000000,3000000,0
 RPL13,Regular,LIST A,Australia,AUS,AUD,0,0,0,0,0,0,0,0
