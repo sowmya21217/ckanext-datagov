@@ -453,7 +453,27 @@
   "WSM": [-13.7590, -172.1046],
   "YEM": [15.552, 48.516],
   "ZMB": [-13.1339, 27.8493],
-  "ZWE": [-19.0154, 29.1549]
+  "ZWE": [-19.0154, 29.1549],
+   "FDFA": [37.0902, -95.7129],  // Example coordinates (replace with actual)
+    "KOR": [36.5, 127.8],         // Example coordinates for South Korea
+    "AUS": [-25.2744, 133.7751],  // Example coordinates for Australia
+    "AUT": [47.5162, 14.5501],    // Example coordinates for Austria
+    "BEL": [50.8503, 4.3517],     // Example coordinates for Belgium
+    "CAN": [56.1304, -106.3468],  // Example coordinates for Canada
+    "CYP": [35.1264, 33.4299],    // Example coordinates for Cyprus
+    "DNK": [56.2639, 9.5018],     // Example coordinates for Denmark
+    "EST": [58.5953, 25.0136],    // Example coordinates for Estonia
+    "FIN": [61.9241, 25.7482],    // Example coordinates for Finland
+    "FRA": [46.6034, 1.8883],     // Example coordinates for France
+    "DEU": [51.1657, 10.4515],    // Example coordinates for Germany
+    "GRC": [39.0742, 21.8243],    // Example coordinates for Greece
+    "HUN": [47.1625, 19.5033],    // Example coordinates for Hungary
+    "ISL": [64.9631, -19.0208],   // Example coordinates for Iceland
+    "IRL": [53.1424, -7.6921],    // Example coordinates for Ireland
+    "ISR": [31.0461, 34.8516],    // Example coordinates for Israel
+    "ITA": [41.8719, 12.5674],    // Example coordinates for Italy
+    "JPN": [36.2048, 138.2529],   // Example coordinates for Japan
+    "LTU": [55.1694, 23.8813
 
              // Add more ISO3 country codes and their respective lat/lng coordinates
         };
@@ -506,10 +526,7 @@
                   weight: 2,
                   opacity: 1,
                   fillOpacity: 0.7
-              }).addTo(map);
-                 
-              var popupContent= `
-       
+              }).addTo(map).bindPopup(`
                    <div style="width: 200px; min-width: 150px;">
                         <div style="background-color: #14B1E5; color: white; font-weight: bold; padding: 5px 10px; text-align: center;">
                            ${project.Member_State}
@@ -519,22 +536,8 @@
                            <strong>Pledge:</strong> $${pledgeUSD.toFixed(2)}<br>
                        </div>
                    </div>
-            `;
-                // Show popup when the cursor hovers over the marker (mouseover)
-               circle.on('mouseover', function() {
-                  circle.bindPopup(popupContent).openPopup();
-               });
+            `);
 
-             // Hide the popup when the cursor leaves the marker (mouseout)
-              circle.on('mouseout', function() {
-                      circle.closePopup();
-               });
-
-             // Redirect to another page when the marker is clicked
-             circle.on('click', function() {
-                var nextPageUrl = `your_next_page_url_here?customercode=${project.Customercode}`; // You can customize the URL as needed
-                window.location.href = nextPageUrl;
-             });
           });
 
 
