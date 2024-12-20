@@ -481,6 +481,13 @@
          projects.forEach(function(project) {
               var iso3 = project.Customercode; // Use Customercode as ISO3
               var coordinates = iso3Coordinates[iso3];
+                 // Check if coordinates are valid (should be an array with two values: lat, lng)
+              if (!coordinates || coordinates.length !== 2 || isNaN(coordinates[0]) || isNaN(coordinates[1])) {
+                   console.error(`Invalid or missing coordinates for Customercode: ${iso3}. Skipping marker.`);
+                   return; // Skip the marker if coordinates are invalid
+               }
+
+
               var countryName = iso3CountryNames[iso3] || 'Unknown Country';
 
               // Use the 'Pledge USD' value directly as the pledge amount in USD
