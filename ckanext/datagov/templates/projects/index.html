@@ -476,36 +476,56 @@
         // Add more countries as necessary...
       };
 
-        // Add project markers
-            projects.forEach(function(project) {
-               var iso3 = project.Customercode; // Use Customercode as ISO3
-               var coordinates = iso3Coordinates[iso3];
-               var countryName = iso3CountryNames[iso3] || 'Unknown Country';
-
-               if (coordinates) {
-                // Calculate the total pledge amount for the same currency
-                  var totalPledgeForCurrency = projects
-                     .filter(p => p.Currency === project.Currency)
-                     .reduce((sum, p) => sum + parseFloat(p.Pledge || 0), 0);
-
-                  // Create a circle marker for each project
-                  L.circleMarker(coordinates, {
-                        radius: 14,
-                        fillColor: '#14B1E5',
-                        color: 'white',
-                        weight: 2,
-                        opacity: 1,
-                        fillOpacity: 0.7
-                    }).addTo(map).bindPopup(`
-                    <strong>Replenishment:</strong> ${project.Replenishment}<br>
-                    <strong>Pledge:</strong> ${project.Pledge}<br>
-                    <strong>Total for Currency (${project.Currency}):</strong> ${totalPledgeForCurrency.toFixed(2)}<br>
-                    <strong>Currency:</strong> ${project.Currency}<br>
-                    <strong>Country:</strong> ${project.Member_State}<br>
-                `);
-               }
-          });
       
+     // Add project markers
+         projects.forEach(function(project) {
+              var iso3 = project.Customercode; // Use Customercode as ISO3
+              var coordinates = iso3Coordinates[iso3];
+              var countryName = iso3CountryNames[iso3] || 'Unknown Country';
+
+              // Use the 'Pledge USD' value directly as the pledge amount in USD
+              var pledgeUSD = parseFloat(project["Pledge USD"] || 0); // Ensure we are using "Pledge USD" column
+
+              // Calculate the total pledge amount for the same Customercode in USD
+              var totalPledgeForCustomercodeUSD = projects
+                  .filter(p => p.Customercode === project.Customercode) // Filter by the same Customercode
+                  .reduce((sum, p) => sum + (parseFloat(p["Pledge USD"] || 0)), 0); // Sum "Pledge USD" for the same Customercode
+
+              // Create a circle marker for each project
+              L.circleMarker(coordinates, {
+                  radius: 14,
+                  fillColor: '#14B1E5',
+                  color: 'white',
+                  weight: 2,
+                  opacity: 1,
+                  fillOpacity: 0.7
+              }).addTo(map).bindPopup(`
+                    <div style="width: 200px; min-width: 150px;">
+                        <div style="background-color: #14B1E5; color: white; font-weight: bold; padding: 5px 10px; text-align: center;">
+                           ${project.Member_State}
+                        </div>
+                       <div style="padding: 10px; font-size: 14px;">
+                           <strong>Replenishment:</strong> ${project.Replenishment}<br>
+                           <strong>Pledge:</strong> $${pledgeUSD.toFixed(2)}<br>
+                       </div>
+                   </div>
+            `);
+                // Show popup when the cursor hovers over the marker (mouseover)
+               circle.on('mouseover', function() {
+                  circle.bindPopup(popupContent).openPopup();
+               });
+
+             // Hide the popup when the cursor leaves the marker (mouseout)
+              circle.on('mouseout', function() {
+                      circle.closePopup();
+               });
+
+             // Redirect to another page when the marker is clicked
+             circle.on('click', function() {
+                var nextPageUrl = `your_next_page_url_here?customercode=${project.Customercode}`; // You can customize the URL as needed
+                window.location.href = nextPageUrl;
+             });
+          });
 
 
 
